@@ -88,5 +88,111 @@ if selec == 4:
         
 print("")
 
+#Atividade, múltiplo de 5, sim ou não
 
+print("")
 
+x = int(input("Digite um número: "))
+
+if x % 5 == 0:
+    print(f"{x} é um múltiplo de 5")
+else:
+    print(f"{x} não é um múltiplo de 5")
+
+print("")
+
+#Atividade de Aprovado ou Reprovado com média 7
+
+print("")
+
+nota1 = float(input("Digite a nota da avaliação 1: "))
+
+if nota1 >= 7:
+    print("Aprovado")
+else:
+    print("Reprovado")
+
+nota2 = float(input("Digite a nota da avaliação 2: "))
+
+if nota2 >= 7:
+    print("Aprovado")
+else:
+    print("Reprovado")
+
+nota3 = float(input("Digite a nota da avaliação 3: "))
+
+if nota3 >= 7:
+    print("Aprovado")
+else:
+    print("Reprovado")
+
+nota4 = float(input("Digite a nota da avaliação 4: "))
+
+if nota4 >= 7:
+    print("Aprovado")
+else:
+    print("Reprovado")
+
+print("")
+
+#Atividade de Par ou Impar
+
+print("")
+
+x = int(input("Digite um número: "))
+resultado = x % 2
+if resultado == 0:
+    print(x, "é par")
+else:
+    print(x, "é impar")
+
+print("")
+
+#Atividade testando o While, mostrando valores menores que o informado até chegar a 0
+
+print("")
+
+mast = int(input("Digite o número: "))
+
+while (mast > 0):
+    print("Número: ", mast)
+    mast = mast -1
+    if (mast == 0):
+        print("Bom, acabamos, até a próxima")
+        break
+
+print("")
+
+#Atividade usando o "for", mostrando multiplos de 3 até chegar ao número informado
+
+print("")
+
+x = int(input("Digite o Número: "))
+
+for x in range (0,x,1):
+    if (x % 3 == 0):
+        print(x)
+
+print("")
+
+#Atividade de somar números infinitamente até que o resultado dê 0
+
+print("")
+
+x = float(input("Digite seu número" ))
+y = float(input("Digite seu número" ))
+resultado = x+y 
+print("")
+print(resultado)
+
+while (resultado != 0):
+
+    x = float(input("\nDigite seu número" ))
+    resultado = resultado + x
+    print("")
+    print(resultado)
+
+    if (x==0):
+        break
+
+print("")
