@@ -196,3 +196,55 @@ while (resultado != 0):
         break
 
 print("")
+
+#Atividade todos os números divisíveis por 7 porém que não são multiplos de 5 (entre 2000 e 3200)
+
+print("")
+
+x = 0
+
+for x in range (2000, 3200,1):
+    if (x%7==0):
+        if (x%5 != 0):
+            print (x)
+
+print("")
+
+#Atividade de fazer IMC 
+
+print("")
+
+pac = int(input("Digite o numero de pacientes: "))
+
+for pac in range (0,pac,1):
+    nome = (input("\nDigite o nome do paciente: "))
+    altura = float(input("Digite a altura do paciente: "))
+    peso = float(input("Digite o peso do paciente: "))
+
+    imc = peso /(altura**2)
+    print(f"\nO {nome}, tem {altura} de altura, pesa {peso} tem o imc igual a {imc:.2f}")
+
+print("")
+
+#Atividade de desconto no inss com valores estipulados no exercício
+
+print("")
+
+sal = float(input("Digite seu salário R$: "))
+
+x = 600.00
+y = 1200.00
+z = 2000.00
+
+if sal <= x:
+    desc = 0
+elif sal <= y:
+    desc = sal * 0.20
+elif sal <= z:
+    desc = sal * 0.25
+else:
+    desc = sal * 0.30
+
+print(f"O desconto do INSS para um salário de R$ {sal:.2f} é de R$ {desc:.2f}")
+
+print("")
