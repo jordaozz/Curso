@@ -358,8 +358,6 @@ def mainMenu():
             print("Opção Invalida")
             sleep(3)
 
-
-
 mainMenu()
 
 
