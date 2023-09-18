@@ -360,5 +360,15 @@ def mainMenu():
 
 mainMenu()
 
+#Atividade de teste de fatiamento de string
+#    x = 'X-DSPAM-Confidence:0.8475'
+#    y = x[:19]
+#    z = x[19:]
+#    print(f'{y} {(float(z) * 100)}')
+
+#Atividade de ler a palavra ao contrário
+#sentenca = input("Digite a palavra: ")
+#for i in range(len(sentenca) - 1, -1, -1):
+#    print(sentenca[i])
 
 
