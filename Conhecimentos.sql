@@ -26,3 +26,26 @@ codproduto INT(10) NOT NULL,
 FOREIGN KEY (codcliente) REFERENCES cliente(codcliente),
 FOREIGN KEY (codproduto) REFERENCES produto(codproduto)
 );
+
+
+
+
+CREATE DATABASE clinica;
+USE clinica;
+
+CREATE TABLE paciente(
+codpaciente INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) NOT NULL,
+telefone INT(11) NOT NULL,
+email VARCHAR(30) NOT NULL,
+endereço VARCHAR(30) NOT NULL
+cpf INT(11) NOT NULL,
+);
+
+CREATE TABLE consulta(
+codconsulta INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+datacons DATE NOT NULL,
+h
+FOREIGN KEY (codpaciente) REFERENCES paciente(codpaciente),
+
+);
