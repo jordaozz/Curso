@@ -1,51 +1,56 @@
-CREATE DATABASE Floricultura
-USE Floricultura;
+CREATE DATABASE escola;
+USE escola;
 
-CREATE TABLE cliente(
-codcliente INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-cpf INT(11) NOT NULL,
-rg INT(9) NOT NULL,
-nome VARCHAR(50) NOT NULL,
-telefone INT(11) NOT NULL,
-endereco VARCHAR(40) NOT NULL,
-email VARCHAR(30) NOT NULL
-);
-
-CREATE TABLE produto(
-codproduto INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(50) NOT NULL,
-valor FLOAT(10) NOT NULL,
-tipo VARCHAR(20) NOT NULL,
-quantidade INT(10) NOT NULL
-);
-
-CREATE TABLE pedido(
-datacompra DATE NOT NULL,
-codcliente INT(10) NOT NULL,
-codproduto INT(10) NOT NULL,
-FOREIGN KEY (codcliente) REFERENCES cliente(codcliente),
-FOREIGN KEY (codproduto) REFERENCES produto(codproduto)
-);
-
-
-
-
-CREATE DATABASE clinica;
-USE clinica;
-
-CREATE TABLE paciente(
-codpaciente INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE aluno(
+id_aluno INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(50) NOT NULL,
 telefone INT(11) NOT NULL,
 email VARCHAR(30) NOT NULL,
-endereço VARCHAR(30) NOT NULL
+endereco VARCHAR(30) NOT NULL,
+complemento_endereco VARCHAR(30),
+cpf INT(11) NOT NULL
+);
+
+CREATE TABLE facilitador(
+id_facilitador INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) NOT NULL,
+telefone INT(11) NOT NULL,
+email VARCHAR(30) NOT NULL,
+endereço VARCHAR(30) NOT NULL,
+complemento_endereco VARCHAR(30),
 cpf INT(11) NOT NULL,
+materia VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE consulta(
-codconsulta INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-datacons DATE NOT NULL,
-h
-FOREIGN KEY (codpaciente) REFERENCES paciente(codpaciente),
-
+CREATE TABLE turma(
+nome_turma VARCHAR(50) NOT NULL PRIMARY KEY,
+numero_sala INT(5) NOT NULL
 );
+
+CREATE TABLE presença(
+data_aula DATE NOT NULL
+);
+
+ALTER TABLE presença
+ADD COLUMN id_aluno INT(11) NOT NULL,
+ADD CONSTRAINT fk_id_aluno FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno);
+
+ALTER TABLE presença
+ADD COLUMN id_facilitador INT(11) NOT NULL,
+ADD CONSTRAINT fk_id_facilitador FOREIGN KEY (id_facilitador) REFERENCES facilitador(id_facilitador);
+
+ALTER TABLE presença
+ADD COLUMN nome_turma VARCHAR(50) NOT NULL,
+ADD CONSTRAINT fk_nome_turma FOREIGN KEY (nome_turma) REFERENCES turma(nome_turma);
+
+CREATE TABLE reprovados(
+data_rep DATE NOT NULL
+);
+
+ALTER TABLE reprovados
+ADD COLUMN id_aluno INT(11) NOT NULL,
+ADD CONSTRAINT fk2_id_aluno FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno);
+
+ALTER TABLE reprovados 
+ADD COLUMN nome_turma VARCHAR(50) NOT NULL,
+ADD CONSTRAINT fk2_nome_turma FOREIGN KEY (nome_turma) REFERENCES turma(nome_turma);
