@@ -1,3 +1,5 @@
+-- DATABASE DE ESCOLA, TRABALHO EM GRUPO MÓDULO 1 --
+
 CREATE DATABASE escola;
 USE escola;
 
@@ -54,3 +56,33 @@ ADD CONSTRAINT fk2_id_aluno FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno);
 ALTER TABLE reprovados 
 ADD COLUMN nome_turma VARCHAR(50) NOT NULL,
 ADD CONSTRAINT fk2_nome_turma FOREIGN KEY (nome_turma) REFERENCES turma(nome_turma);
+
+-- DATABASE CONSULTÓRIO EXERCÍCIO --
+
+CREATE DATABASE consultorio;
+USE consultorio;
+
+CREATE TABLE paciente(
+id_paciente INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(70) NOT NULL
+);
+
+CREATE TABLE medico(
+id_medico INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+crm VARCHAR(50) NOT NULL,
+nome VARCHAR(70) NOT NULL,
+epecializacao VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE consulta(
+id_consulta INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+data_consulta DATE NOT NULL
+);
+
+ALTER TABLE consulta
+ADD COLUMN id_paciente INT(11) NOT NULL,
+ADD CONSTRAINT fk_id_paciente FOREIGN KEY (id_paciente) REFERENCES paciente(id_paciente);
+
+ALTER TABLE consulta
+ADD COLUMN id_medico INT(11) NOT NULL,
+ADD CONSTRAINT fk_id_medico FOREIGN KEY (id_medico) REFERENCES medico(id_medico);
