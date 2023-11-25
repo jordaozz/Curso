@@ -144,7 +144,7 @@ ADD CONSTRAINT fk_id_curso FOREIGN KEY (id_curso) REFERENCES curso(id_curso);
 
 ALTER TABLE disciplina
 ADD COLUMN id_modulo INT(11) NOT NULL,
-ADD CONSTRAINT fk_id_modulos FOREIGN KEY (id_modulo) REFERENCES modulos(id_modulo);
+ADD CONSTRAINT fk_id_modulo FOREIGN KEY (id_modulo) REFERENCES modulos(id_modulo);
 
 ALTER TABLE disciplina
 ADD COLUMN id_facilitador INT(11) NOT NULL,
@@ -152,4 +152,4 @@ ADD CONSTRAINT fk_id_facilitador FOREIGN KEY (id_facilitador) REFERENCES facilit
 
 ALTER TABLE curso
 ADD COLUMN id_modulo INT(11) NOT NULL,
-ADD CONSTRAINT fk_id_modulo FOREIGN KEY (id_modulo) REFERENCES modulos(id_modulo);
+ADD CONSTRAINT fk_id_modulos FOREIGN KEY (id_modulo) REFERENCES modulos(id_modulo);
