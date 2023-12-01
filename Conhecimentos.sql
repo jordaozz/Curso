@@ -102,12 +102,13 @@ endereco_completo VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE turma(
-id_turma INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT
+id_turma INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+numero_sala INT(6) NOT NULL,
+turno VARCHAR (20) NOT NULL
 );
 
 CREATE TABLE curso(
 id_curso INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-numero_sala INT(6) NOT NULL,
 nome_curso VARCHAR(40) NOT NULL,
 data_inicio DATE NOT NULL,
 data_termino DATE NOT NULL
@@ -134,13 +135,13 @@ endereco_completo VARCHAR(100) NOT NULL,
 disciplina VARCHAR(50) NOT NULL
 );
 
-ALTER TABLE turma
-ADD COLUMN id_aluno INT(11) NOT NULL,
-ADD CONSTRAINT fk_id_aluno FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno);
+ALTER TABLE aluno
+ADD COLUMN id_turma INT(11) NOT NULL,
+ADD CONSTRAINT fk_id_turma FOREIGN KEY (id_turma) REFERENCES turma(id_turma);
 
 ALTER TABLE turma
 ADD COLUMN id_curso INT(11) NOT NULL,
-ADD CONSTRAINT fk_id_curso FOREIGN KEY (id_curso) REFERENCES curso(id_curso);
+ADD CONSTRAINT fk_id_curso_turma FOREIGN KEY (id_curso) REFERENCES curso(id_curso);
 
 ALTER TABLE disciplina
 ADD COLUMN id_modulo INT(11) NOT NULL,
@@ -150,6 +151,7 @@ ALTER TABLE disciplina
 ADD COLUMN id_facilitador INT(11) NOT NULL,
 ADD CONSTRAINT fk_id_facilitador FOREIGN KEY (id_facilitador) REFERENCES facilitador(id_facilitador);
 
-ALTER TABLE curso
-ADD COLUMN id_modulo INT(11) NOT NULL,
-ADD CONSTRAINT fk_id_modulos FOREIGN KEY (id_modulo) REFERENCES modulos(id_modulo);
+ALTER TABLE modulos
+ADD COLUMN id_curso INT(11) NOT NULL,
+ADD CONSTRAINT fk_id_curso_modulos FOREIGN KEY (id_curso) REFERENCES curso(id_curso);
+
