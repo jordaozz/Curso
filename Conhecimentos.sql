@@ -95,9 +95,9 @@ USE escola;
 CREATE TABLE aluno( 
 id_aluno INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 nome VARCHAR(60) NOT NULL,
-cpf INT(11) NOT NULL,
+cpf VARCHAR(11) NOT NULL,
 email VARCHAR(50) NOT NULL,
-telefone INT(11) NOT NULL,
+telefone VARCHAR(11) NOT NULL,
 endereco_completo VARCHAR(100) NOT NULL
 );
 
@@ -128,9 +128,9 @@ nome_disciplina VARCHAR(50) NOT NULL
 CREATE TABLE facilitador(
 id_facilitador INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 nome VARCHAR(60) NOT NULL,
-cpf INT(11) NOT NULL,
+cpf VARCHAR(11) NOT NULL,
 email VARCHAR(50) NOT NULL,
-telefone INT(11) NOT NULL,
+telefone VARCHAR(11) NOT NULL,
 endereco_completo VARCHAR(100) NOT NULL,
 disciplina VARCHAR(50) NOT NULL
 );
@@ -154,4 +154,38 @@ ADD CONSTRAINT fk_id_facilitador FOREIGN KEY (id_facilitador) REFERENCES facilit
 ALTER TABLE modulos
 ADD COLUMN id_curso INT(11) NOT NULL,
 ADD CONSTRAINT fk_id_curso_modulos FOREIGN KEY (id_curso) REFERENCES curso(id_curso);
+
+INSERT INTO facilitador(nome, cpf, email, telefone, endereco_completo, disciplina) VALUES 
+('Pedro', '12345678917', 'pedro@gmail.com', '21977777777', 'Rua oito do dez N 6', 'Programação Avançada'),
+('Fernanda', '12345678918', 'fernanda@gmail.com', '21988888888', 'Rua nove do doze N 7', 'Gestão Empresarial'),
+('Roberto', '12345678919', 'roberto@gmail.com', '21999999999', 'Rua dez do quatorze N 8', 'Banco de Dados');
+
+INSERT INTO disciplina(nome_disciplina, id_modulo, id_facilitador) VALUES 
+('Programação Avançada', 1, 1),
+('Gestão Empresarial', 2, 2),
+('Banco de Dados', 3, 3);
+
+INSERT INTO modulos(data_inicio, data_termino, id_curso) VALUES 
+('2022-01-15', '2022-05-30', 1),
+('2022-06-01', '2022-10-30', 1),
+('2022-02-01', '2022-06-30', 2),
+('2022-07-01', '2022-11-30', 2),
+('2022-03-10', '2022-07-31', 3);
+
+INSERT INTO curso(nome_curso, data_inicio, data_termino) VALUES 
+('Engenharia de Software', '2022-01-15', '2023-12-20'),
+('Administração', '2022-02-01', '2023-11-30'),
+('Ciência da Computação', '2022-03-10', '2023-10-15');
+
+INSERT INTO turma(numero_sala, turno, id_curso) VALUES 
+(101, 'Manhã', 1),
+(202, 'Tarde', 2),
+(303, 'Noite', 1);
+
+INSERT INTO aluno(nome, cpf, email, telefone, endereco_completo, id_turma) VALUES 
+('Ana', '12345678912', 'ana@gmail.com', '21922222222', 'Rua três do quatro N 1', 1),
+('Lucas', '12345678913', 'lucas@gmail.com', '21933333333', 'Rua quatro do seis N 2', 2),
+('Carla', '12345678914', 'carla@gmail.com', '21944444444', 'Rua cinco do oito N 3', 1),
+('Mariana', '12345678915', 'mariana@gmail.com', '21955555555', 'Rua seis do dez N 4', 1),
+('João', '12345678916', 'joao@gmail.com', '21966666666', 'Rua sete do doze N 5', 2);
 
